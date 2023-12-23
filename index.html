@@ -9,7 +9,7 @@
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width=1920 height=1080 tabindex="-1"></canvas>
+      <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
         <div id="unity-progress-bar-empty">
@@ -59,11 +59,11 @@
       var buildUrl = "Build";
       var loaderUrl = buildUrl + "/Web.loader.js";
       var config = {
-        dataUrl: buildUrl + "/Web.data",
-        frameworkUrl: buildUrl + "/Web.framework.js",
-        codeUrl: buildUrl + "/Web.wasm",
+        dataUrl: buildUrl + "/Web.data.br",
+        frameworkUrl: buildUrl + "/Web.framework.js.br",
+        codeUrl: buildUrl + "/Web.wasm.br",
         streamingAssetsUrl: "StreamingAssets",
-        companyName: "BlossomStudios",
+        companyName: "DefaultCompany",
         productName: "OnionLad",
         productVersion: "1.0",
         showBanner: unityShowBanner,
@@ -94,8 +94,8 @@
       } else {
         // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
 
-        canvas.style.width = "1920px";
-        canvas.style.height = "1080px";
+        canvas.style.width = "960px";
+        canvas.style.height = "600px";
       }
 
       loadingBar.style.display = "block";
