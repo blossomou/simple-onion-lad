@@ -16,6 +16,8 @@ public class MoveController : MonoBehaviour
     [SerializeField] private LayerMask whatIsGround;
     private bool isGrounded;
 
+    private bool facingRight = true;
+
     private void Awake() {
         rigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -31,13 +33,16 @@ public class MoveController : MonoBehaviour
     void Update()
     {
         AnimationControllers();
-     
         CollisionChecks();
+        FlipController();
+        
         xInput = Input.GetAxisRaw("Horizontal");
+
         Movement();
 
         if(Input.GetKeyDown(KeyCode.Space) )
             Jump();
+
         
     }
 
@@ -48,11 +53,7 @@ public class MoveController : MonoBehaviour
         animator.SetBool("isGrounded", isGrounded);
 
     }
-    private void CollisionChecks()
-    {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
-    }
-
+ 
     private void Jump()
     {
         if(isGrounded)
@@ -64,6 +65,27 @@ public class MoveController : MonoBehaviour
         rigidBody.velocity = new Vector2(xInput * moveSpeed, rigidBody.velocity.y);
 
     }
+
+    private void FlipController()
+    {
+        if (rigidBody.velocity.x < 0 && facingRight)
+            Flip();
+        else if (rigidBody.velocity.x > 0 && !facingRight)
+            Flip();
+    }
+
+    private void Flip()
+    {
+        facingRight = !facingRight;
+
+        transform.Rotate(0, 180, 0);
+    }
+
+    private void CollisionChecks()
+    {
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
+    }
+
 
     private void OnDrawGizmos() {
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
