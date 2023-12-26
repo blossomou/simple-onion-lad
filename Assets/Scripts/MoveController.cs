@@ -35,7 +35,7 @@ public class MoveController : MonoBehaviour
         AnimationControllers();
         CollisionChecks();
         FlipController();
-        
+
         xInput = Input.GetAxisRaw("Horizontal");
 
         Movement();
