@@ -43,8 +43,9 @@ public class MoveController : MonoBehaviour
 
     private void AnimationControllers()
     {
-        var isMoving = rigidBody.velocity.x != 0;
-        animator.SetBool("isMoving", isMoving);
+        animator.SetFloat("xVelocity", rigidBody.velocity.x);
+        animator.SetFloat("yVelocity", rigidBody.velocity.y);
+        animator.SetBool("isGrounded", isGrounded);
 
     }
     private void CollisionChecks()
