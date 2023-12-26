@@ -5,6 +5,7 @@ using UnityEngine;
 public class MoveController : MonoBehaviour
 {
     private Rigidbody2D rigidBody;
+    private Animator animator;
     [SerializeField] private float moveSpeed;
     [SerializeField] private float jumpForce;
     private float xInput;
@@ -17,6 +18,7 @@ public class MoveController : MonoBehaviour
 
     private void Awake() {
         rigidBody = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
     
     // Start is called before the first frame update
@@ -28,6 +30,8 @@ public class MoveController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        AnimationControllers();
+     
         CollisionChecks();
         xInput = Input.GetAxisRaw("Horizontal");
         Movement();
@@ -37,6 +41,12 @@ public class MoveController : MonoBehaviour
         
     }
 
+    private void AnimationControllers()
+    {
+        var isMoving = rigidBody.velocity.x != 0;
+        animator.SetBool("isMoving", isMoving);
+
+    }
     private void CollisionChecks()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
