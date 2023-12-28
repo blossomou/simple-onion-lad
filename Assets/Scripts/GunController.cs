@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class GunController : MonoBehaviour
@@ -9,6 +10,10 @@ public class GunController : MonoBehaviour
     [SerializeField] private float gunDistance = 1.5f;
 
     private bool gunFacingRight = true;
+
+    [Header("Bullet")]
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private float bulletSpeed;
 
     // Update is called once per frame
     void Update()
@@ -23,7 +28,7 @@ public class GunController : MonoBehaviour
         gun.position = transform.position + Quaternion.Euler(0, 0, angle) * new Vector3(gunDistance, 0, 0);
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
-            Shoot();
+            Shoot(direction);
 
         GunFlipController(mousePos);
        
@@ -43,8 +48,13 @@ public class GunController : MonoBehaviour
         gun.localScale = new Vector3(gun.localScale.x, gun.localScale.y * -1, gun.localScale.z);
     }
 
-    public void Shoot()
+    public void Shoot(Vector3 direction)
     {
         gunAnimate.SetTrigger("Shoot");
+
+        GameObject newBullet = Instantiate(bulletPrefab, gun.position, Quaternion.identity);
+        newBullet.GetComponent<Rigidbody2D>().velocity = direction.normalized * bulletSpeed;
+
+        Destroy(newBullet, 7);
     }
 }
