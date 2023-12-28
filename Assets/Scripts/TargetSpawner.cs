@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TargetSpawner : MonoBehaviour
@@ -10,6 +11,9 @@ public class TargetSpawner : MonoBehaviour
     [SerializeField] private float coolDown;
     private float timer;
 
+    private int sushiCreated;
+    private int sushiMilestone;
+
     void Update()
     {
         timer -= Time.deltaTime;
@@ -17,6 +21,13 @@ public class TargetSpawner : MonoBehaviour
         if(timer < 0)
         {
             timer = coolDown;
+            sushiCreated++;
+
+            if(sushiCreated > sushiMilestone && coolDown > .5f)
+            {
+                sushiMilestone += 10;
+                coolDown -= .3f;
+            }
             GameObject newTarget = Instantiate(targetPrefab);
 
             float randomX = Random.Range(cd.bounds.min.x, cd.bounds.max.x);
