@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class MoveController : MonoBehaviour
@@ -68,9 +69,11 @@ public class MoveController : MonoBehaviour
 
     private void FlipController()
     {
-        if (rigidBody.velocity.x < 0 && facingRight)
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        if (mousePos.x < transform.position.x && facingRight)
             Flip();
-        else if (rigidBody.velocity.x > 0 && !facingRight)
+        else if (mousePos.x > transform.position.x && !facingRight)
             Flip();
     }
 
