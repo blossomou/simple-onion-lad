@@ -259,13 +259,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdfe6a3b7a3a1ad49980f21ee69f3f17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetSprite:
-  - {fileID: -1495416761, guid: 5f18d3d93366f784c9365ca7af7db3f5, type: 3}
-  - {fileID: -654584361, guid: 5f18d3d93366f784c9365ca7af7db3f5, type: 3}
-  - {fileID: 2117366328, guid: 5f18d3d93366f784c9365ca7af7db3f5, type: 3}
-  cd: {fileID: 457277893}
-  targetPrefab: {fileID: 3549190096600723957, guid: a3830568bc17c964f8d7d865ef6921e9, type: 3}
+  sushiPrefabs:
+  - {fileID: 3549190096600723957, guid: 44b77b6e41a4044419b05108c190076b, type: 3}
+  - {fileID: 3549190096600723957, guid: a3830568bc17c964f8d7d865ef6921e9, type: 3}
+  - {fileID: 3549190096600723957, guid: 76b048d64cbe1fc4f9196093c0b243b1, type: 3}
+  spawnArea: {fileID: 457277893}
+  reloadPrefab: {fileID: 3549190096600723957, guid: b2630b3a477168948a134e37611435a8, type: 3}
   coolDown: 2
+  reloadChance: 0.02
 --- !u!61 &457277893
 BoxCollider2D:
   m_ObjectHideFlags: 0

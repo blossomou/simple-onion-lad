@@ -15,6 +15,13 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
             Destroy(collision.gameObject);
         }
+
+        if(collision.tag == "Reload")
+        {
+            Debug.Log("Bullet Reload!");
+            Destroy(gameObject);
+            Destroy(collision.gameObject);
+        }
         
     }
 }
