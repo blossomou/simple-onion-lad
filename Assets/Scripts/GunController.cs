@@ -14,6 +14,13 @@ public class GunController : MonoBehaviour
     [Header("Bullet")]
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private float bulletSpeed;
+    public int currentBullets;
+    public int maxBullets;
+
+    private void Start() 
+    {
+        ReloadGun();
+    }
 
     // Update is called once per frame
     void Update()
@@ -27,8 +34,11 @@ public class GunController : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         gun.position = transform.position + Quaternion.Euler(0, 0, angle) * new Vector3(gunDistance, 0, 0);
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && HaveBullets())
             Shoot(direction);
+
+        if (Input.GetKeyDown(KeyCode.R))
+            ReloadGun();
 
         GunFlipController(mousePos);
        
@@ -56,5 +66,24 @@ public class GunController : MonoBehaviour
         newBullet.GetComponent<Rigidbody2D>().velocity = direction.normalized * bulletSpeed;
 
         Destroy(newBullet, 7);
+    }
+
+    private void ReloadGun()
+    {
+        if(currentBullets <= 100)
+        {
+            currentBullets += maxBullets;
+        }
+    }
+
+    public bool HaveBullets()
+    {
+        if (currentBullets <= 0)
+        {
+            return false;
+        }
+
+        currentBullets--;
+        return true;
     }
 }

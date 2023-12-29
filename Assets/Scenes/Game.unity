@@ -266,7 +266,7 @@ MonoBehaviour:
   spawnArea: {fileID: 457277893}
   reloadPrefab: {fileID: 3549190096600723957, guid: b2630b3a477168948a134e37611435a8, type: 3}
   coolDown: 2
-  reloadChance: 0.02
+  reloadChance: 0.1
 --- !u!61 &457277893
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -537,6 +537,8 @@ MonoBehaviour:
   gunDistance: 1.2
   bulletPrefab: {fileID: 604993469590611158, guid: 3105c260cad4e604a89102edb68da013, type: 3}
   bulletSpeed: 15
+  currentBullets: 0
+  maxBullets: 15
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1008,7 +1010,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1893171880
 MonoBehaviour:
   m_ObjectHideFlags: 0
