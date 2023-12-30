@@ -255,7 +255,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 61
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -552,7 +552,7 @@ MonoBehaviour:
   spawnArea: {fileID: 457277893}
   reloadPrefab: {fileID: 3549190096600723957, guid: b2630b3a477168948a134e37611435a8, type: 3}
   coolDown: 2
-  reloadChance: 0.1
+  reloadChance: 0.5
 --- !u!61 &457277893
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -823,8 +823,8 @@ MonoBehaviour:
   gunDistance: 1.2
   bulletPrefab: {fileID: 604993469590611158, guid: 3105c260cad4e604a89102edb68da013, type: 3}
   bulletSpeed: 15
-  currentBullets: 0
-  maxBullets: 15
+  addBullets: 15
+  maxBullets: 50
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1049,7 +1049,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 11/15
+  m_text: 15/50
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1461,7 +1461,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 103
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2105,8 +2105,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1485603547}
-  - {fileID: 1598107618}
   - {fileID: 218425489}
+  - {fileID: 1598107618}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2126,6 +2126,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fe4727ce271cba4aa1314cf4653a306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 1425760956}
+  timerText: {fileID: 191947120}
+  ammoText: {fileID: 732281596}
 --- !u!1 &1938255751
 GameObject:
   m_ObjectHideFlags: 0
