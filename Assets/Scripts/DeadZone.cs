@@ -8,9 +8,7 @@ public class DeadZone : MonoBehaviour
    {
         if(collision.tag == "Target" || collision.tag == "Player")
         {
-            Time.timeScale = 0;
-
-            Debug.Log("You lost the game");
+            UI.instance.OpenEndScreen(); //this will end the game!
         }
     
    }

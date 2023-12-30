@@ -61,9 +61,9 @@ public class GunController : MonoBehaviour
 
     public void Shoot(Vector3 direction)
     {
-        gunAnimate.SetTrigger("Shoot");
-
         UI.instance.UpdateAmmoInfo(currentBullets, maxBullets);
+       
+        gunAnimate.SetTrigger("Shoot");
 
         GameObject newBullet = Instantiate(bulletPrefab, gun.position, Quaternion.identity);
         newBullet.GetComponent<Rigidbody2D>().velocity = direction.normalized * bulletSpeed;
