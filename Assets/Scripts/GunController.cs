@@ -14,7 +14,7 @@ public class GunController : MonoBehaviour
     [Header("Bullet")]
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private float bulletSpeed;
-    private int currentBullets;
+    private int currentBullets = 15;
     [SerializeField] private int addBullets;
     [SerializeField] private int maxBullets;
 
@@ -42,6 +42,8 @@ public class GunController : MonoBehaviour
             ReloadGun();
 
         GunFlipController(mousePos);
+        
+        UI.instance.UpdateAmmoInfo(currentBullets, maxBullets);
        
     }
 
@@ -61,7 +63,6 @@ public class GunController : MonoBehaviour
 
     public void Shoot(Vector3 direction)
     {
-        UI.instance.UpdateAmmoInfo(currentBullets, maxBullets);
        
         gunAnimate.SetTrigger("Shoot");
 
@@ -76,7 +77,12 @@ public class GunController : MonoBehaviour
         if(currentBullets <= 50)
         {
             currentBullets += addBullets;
-        }
+
+            if(currentBullets >= 50)
+            {
+                currentBullets = maxBullets;
+            }
+        }      
     }
 
     public bool HaveBullets()

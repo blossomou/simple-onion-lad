@@ -23,7 +23,7 @@ public class UI : MonoBehaviour
     void Update()
     {
         if (Time.time > 1)
-            timerText.text = Time.time.ToString("#,#");    
+            timerText.text = Time.time.ToString("#,#");
     }
     public void AddScore() 
     {

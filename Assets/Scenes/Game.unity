@@ -552,7 +552,7 @@ MonoBehaviour:
   spawnArea: {fileID: 457277893}
   reloadPrefab: {fileID: 3549190096600723957, guid: b2630b3a477168948a134e37611435a8, type: 3}
   coolDown: 2
-  reloadChance: 0.5
+  reloadChance: 0.2
 --- !u!61 &457277893
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1049,7 +1049,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 15/50
+  m_text: 30/50
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
